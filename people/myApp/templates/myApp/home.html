@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Informations</title>
+    <link rel="stylesheet" href={% static 'style.css' %}>
+</head>
+
+<body>
+    <header>
+        <h1>INFORMATIONS</h1>
+    </header>
+
+    <section>
+        <h2>Students</h2>
+        <td><a href="{% url 'addStudent'%}"><button type="button">+ Add records from csv</button></a></td>
+        
+        <table id="attribute">
+            <colgroup>
+                <col width="23%">
+                <col width="35%">
+                <col width="13%">
+                <col width="29%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Score</th>
+                    <th>county</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for student in students %}
+                <tr>
+                    <td>{{student.studentID}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.score}}</td>
+                    <td>{{student.county}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+
+        <h2>Professors</h2>
+        <td><a href="{% url 'addProfessor'%}"><button type="button">+ Add records from csv</button></a></td>
+        
+        <table id="attribute">
+            <colgroup>
+                <col width="23%">
+                <col width="35%">
+                <col width="12%">
+                <col width="30%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Profeesor ID</th>
+                    <th>Professor Name</th>
+                    <th>Age</th>
+                    <th>county</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div>
+            <table>
+            {% for professor in professors %}
+                <tr>
+                    <td>{{professor.facultyID}}</td>
+                    <td>{{professor.name}}</td>
+                    <td>{{professor.age}}</td>
+                    <td>{{professor.county}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+        <h2>Counties</h2>
+        <td><a href="{% url 'addcounty'%}"><button type="button">+ Add records from csv</button></a></td>
+        
+        <table id="attribute">
+            <colgroup>
+                <col width="47%">
+                <col width="13%">
+                <col width="40%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Population</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for county in counties %}
+                <tr>
+                    <td>{{county.countyName}}</td>
+                    <td>{{county.population}}</td>
+                    <td>{{county.city}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+        <h2>COVID</h2>
+        <td><a href="{% url 'addCOVID'%}"><button type="button">+ Add records from csv</button></a></td>
+            <table id="attribute">
+                <colgroup>
+                    <col width="49%">
+                    <col width="51%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+            </table>
+        <div>
+                <table>
+            {% for cov in COVID %}
+                <tr>
+                    <td>{{cov.patientID}}</td>
+                    <td>{{cov.city}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+        <h2>Query #1</h2>
+        <table id="attribute">
+            <thead>
+                <tr>
+                    <th>County Name</th>
+                    <th>Average Score</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for i in output1 %}
+                <tr>
+                    <td>{{i.countyName}}</td>
+                    <td>{{i.averageScore}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+        <h2>Query #2</h2>
+        <table id="attribute">
+            <thead>
+                <tr>
+                    <th>City Name</th>
+                    <th>Average Score</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for i in output2 %}
+                <tr>
+                    <td>{{i.cityName}}</td>
+                    <td>{{i.averageScore}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+        
+        <h2>Query #3</h2>
+        <table id="attribute">
+            <thead>
+                <tr>
+                    <th>Professor Name</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for i in output3 %}
+                <tr>
+                    <td>{{i.professorName}}</td>
+                    <td>{{i.studentName}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+
+        <h2>Query #4</h2>
+        <table id="attribute">
+            <thead>
+                <tr>
+                    <th>Professor Name</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+                <table>
+            {% for i in output4 %}
+                <tr>
+                    <td>{{i.professorName}}</td>
+                    <td>{{i.studentName}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+        
+        <h2>Query #5</h2>
+        <table id="attribute">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>City Name</th>
+                </tr>
+            </thead>
+        </table>
+        <div>
+            <table>
+            {% for i in output5 %}
+                <tr>
+                    <td>{{i.studentName}}</td>
+                    <td>{{i.cityName}}</td>
+                </tr>
+            {% endfor %}   
+            </table>
+        </div>
+        
+    </section>
+
+</body>
+
+</html>
